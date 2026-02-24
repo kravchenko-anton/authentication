@@ -1,0 +1,105 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  
+  --radius: 0.5rem;
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+}
+
+:root {
+  font-family: "Space Mono", monospace !important;
+  --base-background: #18191A;
+  --base-foreground: #242526;
+  --base-primary: #0C6291;
+  --base-muted: #282828;
+  --base-border: #3A3B3C;
+  --base-black: #000000;
+  --base-grey: #9F9F9F;
+  --base-white: #F4F3F2;
+
+  --background: var(--base-background);
+  --foreground: var(--base-white);
+  --card: var(--base-foreground);
+  --card-foreground: var(--base-white);
+  --popover: var(--base-foreground);
+  --popover-foreground: var(--base-white);
+  --primary: var(--base-primary);
+  --primary-foreground: var(--base-white);
+  --secondary: var(--base-muted);
+  --secondary-foreground: var(--base-white);
+  --accent: var(--base-border);
+  --accent-foreground: var(--base-white);
+  --muted: var(--base-muted);
+  --muted-foreground: var(--base-gray);
+  --destructive: var(--base-gray);
+  --destructive-foreground: var(--base-black);
+  --border: var(--base-border);
+  --input: var(--base-border);
+  --ring: var(--base-primary);
+  
+  --radius: 0.5rem;
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+}
+
+.light {
+  --background: var(--base-white);
+  --foreground: var(--base-black);
+  --card: var(--base-white);
+  --card-foreground: var(--base-black);
+  --popover: var(--base-white);
+  --popover-foreground: var(--base-black);
+  --primary: var(--base-primary);
+  --primary-foreground: var(--base-white);
+  --secondary: var(--base-gray);
+  --secondary-foreground: var(--base-black);
+  --accent: var(--base-gray);
+  --accent-foreground: var(--base-black);
+  --muted: var(--base-gray);
+  --muted-foreground: var(--base-foreground);
+  --destructive: var(--base-black);
+  --destructive-foreground: var(--base-white);
+  --border: var(--base-gray);
+  --input: var(--base-gray);
+  --ring: var(--base-primary);
+  
+  --radius: 0.5rem;
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
