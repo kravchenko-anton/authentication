@@ -1,5 +1,4 @@
 import {MainProvider} from "@/shared/providers";
-import { ThemeToggle } from "@/components/ui";
 import type { Metadata } from "next";
 import { Space_Mono } from "next/font/google";
 import "./globals.css";
@@ -25,7 +24,6 @@ export default function RootLayout({
     <html suppressHydrationWarning lang='en'>
     <body className={`${spaceMono.variable} antialiased`}>
     <MainProvider>
-      <ThemeToggle />
         {children}
     </MainProvider>
     </body>

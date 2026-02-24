@@ -1,19 +1,16 @@
-import { Suspense } from 'react'
-
-import {ReCaptchaProvider} from "@/shared/providers/ReCaptchaProvider";
 import type { Metadata } from 'next'
 
-import { NewPasswordForm } from '@/features/auth/components'
-import { Loading } from '@/components/ui'
+import { ReCaptchaProvider } from '@/shared/providers/ReCaptchaProvider'
+import { NewPasswordForm } from '@/app/auth/components/NewPasswordForm'
 
 export const metadata: Metadata = {
 	title: 'New password'
 }
 
 export default function NewPasswordPage() {
-	return <Suspense fallback={<Loading />}>
+	return (
 		<ReCaptchaProvider>
 			<NewPasswordForm />
 		</ReCaptchaProvider>
-	</Suspense>
+	)
 }
