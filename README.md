@@ -9,10 +9,16 @@ This repository contains a **Next.js 16** client and a **NestJS (v11)** API that
 
 ## Requirements
 
-- **PostgreSQL** for Prisma; supply a `DATABASE_URL` with a database you can migrate.
-- **Redis** for session management (or you can use a compatible mock – just point `REDIS_URL` at it).
-- **Google OAuth + ReCaptcha credentials** for the OAuth path (see `.env.example` files inside `server/` and `client/`).
-- **Resend API key** if you want the email flow to send real mail.
+- **PostgreSQL** for Prisma migrations (`DATABASE_URL`).
+- **Redis** for session storage (`REDIS_URL`, `REDIS_SESSION_PREFIX`, etc.).
+- **Google OAuth + reCAPTCHA credentials** (see `.env.example` in `server/` and `client/`).
+- **Resend API key** if you want the onboarding emails to be delivered.
+
+To restore Google functionality:
+
+1. **Google ReCAPTCHA** – register at https://www.google.com/recaptcha, create a v3, then set the Site Key in `client/.env` (`GOOGLE_RECAPTCHA_SITE_KEY`) and the Secret Key in `server/.env` (`GOOGLE_RECAPTCHA_SECRET_KEY`).
+2. **Google OAuth Client** – create OAuth credentials on https://console.cloud.google.com/apis/credentials, set the Client ID + Secret in `server/.env` (`GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`), and make sure the authorized redirect URI matches `${SERVER_URL}/auth/oauth/connect/google`.
+3. **Resend API key** – add the key to `server/.env` (`RESEND_API_KEY`) so the verification/reset flows can send actual emails.
 
 ## Quick start
 
@@ -31,4 +37,3 @@ This repository contains a **Next.js 16** client and a **NestJS (v11)** API that
    - `yarn install` (or `npm install`)
    - `yarn dev` to run Next.js on `http://localhost:3000`
    - The login/register pages will render the shared forms, including the Google button, reCAPTCHA, and the shared TanStack/react-query hooks. The dashboard settings page hits the `/users/profile` endpoint and shows the user button with logout.
-
