@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 
+import { ReCaptchaProvider } from '@/shared/providers/ReCaptchaProvider'
 import { ResetPasswordForm } from '@/app/auth/components/ResetPasswordForm'
 
 export const metadata: Metadata = {
@@ -7,5 +8,9 @@ export const metadata: Metadata = {
 }
 
 export default function ResetPasswordPage() {
-	return <ResetPasswordForm />
+	return (
+		<ReCaptchaProvider>
+			<ResetPasswordForm />
+		</ReCaptchaProvider>
+	)
 }
